@@ -22,3 +22,19 @@ for carta in baralho:
 
 input_= int(input('Escolha uma carta (digite um número entre 1 e 52): '))
 input_ -= 1
+
+possivel = ep2.lista_movimentos_possiveis(baralho,input_)
+if len(possivel) == 1:
+    primeiro = possivel[0]
+    ep2.empilha(baralho, input_, primeiro)
+if len(possivel) == 2:
+    qual = int(input('Sobre qual carta você quer empilhar o {}: 1. {} ou 2. {}? '.format(baralho[input_], baralho[input_ - 1], baralho[input_ - 3])))
+    if qual == 1:
+        ep2.empilha(baralho, input_, possivel[0])
+    else:
+        ep2.empilha(baralho, input_, possivel[1])
+
+i2 = 1
+for carta in baralho:
+    print('{}. {}'.format(i2,carta))
+    i2 += 1
