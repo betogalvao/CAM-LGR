@@ -16,8 +16,9 @@ input('Aperte [Enter] para iniciar o jogo...')
 print('O estado atual do baralho é: ')
 baralho = ep2.cria_baralho()
 i = 1
-for carta in ep2.cria_baralho():
+for carta in baralho:
     print('{}. {}'.format(i,carta))
     i += 1
 
-input_= int(input('Escolha uma carta: '))
+input_= int(input('Escolha uma carta (digite um número entre 1 e 52): '))
+input_ -= 1
