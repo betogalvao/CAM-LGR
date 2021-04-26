@@ -66,3 +66,24 @@ def lista_movimentos_possiveis(baralho, input_):
             if extrai_naipe(baralho[input_]) in baralho[input_ - 3] or extrai_valor(baralho[input_]) in baralho[input_ - 3]:
                 lista_possiveis.append(3)
                 return lista_possiveis
+   
+def empilha(baralho, input_, possiveis):
+    baralho[possiveis] = baralho[input_]
+    del(baralho[input_])
+    return baralho
+
+def possui_movimentos_possiveis(baralho):
+    i = 1
+    while i != len(baralho):
+        while i < 3:
+            if extrai_naipe(baralho[i]) in baralho[i - 1] or extrai_valor(baralho[i]) in baralho[i - 1]:
+                return True
+            else:
+               i += 1
+        while i >= 3:
+            if extrai_naipe(baralho[i]) in baralho[i - 1] or extrai_valor(baralho[i]) in baralho[i - 1] or extrai_naipe(baralho[i]) in baralho[i - 3] or extrai_valor(baralho[i]) in baralho[i - 3]:
+                return True
+            else:
+                i += 1
+            if i == len(baralho):
+                return False
