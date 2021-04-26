@@ -1,3 +1,5 @@
+import funcoesEP2 as ep2
+
 print('Paciência Acordeão') 
 print('==================')
 print('Seja bem-vindo(a) ao jogo de Paciência Acordeão! O objetivo deste jogo é colocar todas as cartas em uma mesma pilha.')
@@ -10,3 +12,7 @@ print('2. As duas cartas possuem o mesmo naipe. ')
 print('Desde que alguma das condições acima seja satisfeita, qualquer carta pode ser movimentada. ')
 
 input('Aperte [Enter] para iniciar o jogo...')
+
+print('O estado atual do baralho é: ')
+for carta in ep2.cria_baralho():
+    print(carta)
