@@ -52,3 +52,17 @@ def extrai_valor(carta):
         return 'Q'
     if 'K' in carta:
         return 'K'
+
+def lista_movimentos_possiveis(baralho, input_):
+    lista_possiveis = []
+    if input_ == 0:
+        return lista_possiveis
+    else:
+        if extrai_naipe(baralho[input_]) in baralho[input_ - 1] or extrai_valor(baralho[input_]) in baralho[input_ - 1]:
+            lista_possiveis.append(1)
+        if input_ < 3:
+            return lista_possiveis
+        else:
+            if extrai_naipe(baralho[input_]) in baralho[input_ - 3] or extrai_valor(baralho[input_]) in baralho[input_ - 3]:
+                lista_possiveis.append(3)
+                return lista_possiveis
