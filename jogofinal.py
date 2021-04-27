@@ -20,21 +20,38 @@ for carta in baralho:
     print('{}. {}'.format(i,carta))
     i += 1
 
-input_= int(input('Escolha uma carta (digite um número entre 1 e 52): '))
-input_ -= 1
+continuar = ep2.possui_movimentos_possiveis(baralho)
 
-possivel = ep2.lista_movimentos_possiveis(baralho,input_)
-if len(possivel) == 1:
-    primeiro = possivel[0]
-    ep2.empilha(baralho, input_, primeiro)
-if len(possivel) == 2:
-    qual = int(input('Sobre qual carta você quer empilhar o {}: 1. {} ou 2. {}? '.format(baralho[input_], baralho[input_ - 1], baralho[input_ - 3])))
-    if qual == 1:
-        ep2.empilha(baralho, input_, possivel[0])
-    else:
-        ep2.empilha(baralho, input_, possivel[1])
-
-i2 = 1
-for carta in baralho:
-    print('{}. {}'.format(i2,carta))
-    i2 += 1
+if continuar == True:
+    while continuar:
+        input_= int(input('Escolha uma carta (digite um número entre 1 e {}): '.format(len(baralho))))
+        if input_ > len(baralho):
+            print('Posição inválida')
+        else:
+            input_ -= 1
+            possivel = ep2.lista_movimentos_possiveis(baralho,input_)
+            if len(possivel) == 1:
+                primeiro = possivel[0]
+                ep2.empilha(baralho, input_, primeiro)
+                i = 1
+                for carta in baralho:
+                    print('{}. {}'.format(i,carta))
+                    i += 1
+            if len(possivel) == 2:
+                qual = int(input('Sobre qual carta você quer empilhar o {}: 1. {} ou 2. {}? '.format(baralho[input_], baralho[input_ - 1], baralho[input_ - 3])))
+                if qual == 1:
+                    ep2.empilha(baralho, input_, possivel[0])
+                    i = 1
+                    for carta in baralho:
+                        print('{}. {}'.format(i,carta))
+                        i += 1
+                else:
+                    ep2.empilha(baralho, input_, possivel[1])
+                    i = 1
+                    for carta in baralho:
+                        print('{}. {}'.format(i,carta))
+                        i += 1
+            if len(possivel) == 0:
+                print('A carta {} não pode ser movida.'.format(baralho[input_]))
+else:
+    print('Você perdeu')
