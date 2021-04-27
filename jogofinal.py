@@ -1,4 +1,4 @@
-import funcoesEP2 as ep2
+import funcoes as ep2
 
 print('Paciência Acordeão') 
 print('==================')
@@ -35,11 +35,50 @@ continuar = ep2.possui_movimentos_possiveis(baralho)
 if continuar == True:
     while continuar:
         if len(baralho) == 1:
-            print('\032[1;31;40mParabens, você ganhou!!!\n')
+            print('\033[1;32;40mParabens, você ganhou!!!\n')
+            jogardnv = input('\033[0;37;40mDeseja jogar de novo? (s/n) \n')
+            if jogardnv == 's':
+                baralho = ep2.cria_baralho()
+                i = 1
+                for carta in baralho:
+                    if '♦' in carta:
+                        print("\033[0;31;40m{}. {}  \n".format(i, carta))
+                        i += 1
+                    if '♥' in carta:
+                        print("\033[0;32;40m{}. {}  \n".format(i, carta))
+                        i += 1
+                    if '♣' in carta:
+                        print("\033[0;33;40m{}. {}  \n".format(i, carta))
+                        i += 1
+                    if '♠' in carta:
+                        print("\033[0;34;40m{}. {}  \n".format(i, carta))
+                        i += 1
+            else:
+                continuar = False
         elif len(baralho) != 1:
             continuar = ep2.possui_movimentos_possiveis(baralho)
             if continuar == False:
                 print('\033[1;31;40mVocê perdeu\n')
+                jogardnv = input('\033[0;37;40mDeseja jogar de novo? (s/n) \n')
+                if jogardnv == 's':
+                    baralho = ep2.cria_baralho()
+                    i = 1
+                    for carta in baralho:
+                        if '♦' in carta:
+                            print("\033[0;31;40m{}. {}  \n".format(i, carta))
+                            i += 1
+                        if '♥' in carta:
+                            print("\033[0;32;40m{}. {}  \n".format(i, carta))
+                            i += 1
+                        if '♣' in carta:
+                            print("\033[0;33;40m{}. {}  \n".format(i, carta))
+                            i += 1
+                        if '♠' in carta:
+                            print("\033[0;34;40m{}. {}  \n".format(i, carta))
+                            i += 1
+                    continuar = ep2.possui_movimentos_possiveis(baralho)
+                else:
+                    continuar = False
             else:
                 input_= int(input('\033[0;37;40mEscolha uma carta (digite um número entre 1 e {}): \n'.format(len(baralho))))
                 if input_ > len(baralho):
