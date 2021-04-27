@@ -1,4 +1,4 @@
-import funcoes as ep2
+import funcoesEP2 as ep2
 
 print('Paciência Acordeão') 
 print('==================')
