@@ -15,20 +15,7 @@ input('Aperte [Enter] para iniciar o jogo...')
 
 print('O estado atual do baralho é: ')
 baralho = ep2.cria_baralho()
-i = 1
-for carta in baralho:
-    if '♦' in carta:
-        print("\033[0;31;40m{}. {}  ".format(i, carta))
-        i += 1
-    if '♥' in carta:
-        print("\033[0;32;40m{}. {}  ".format(i, carta))
-        i += 1
-    if '♣' in carta:
-        print("\033[0;33;40m{}. {}  ".format(i, carta))
-        i += 1
-    if '♠' in carta:
-        print("\033[0;34;40m{}. {}  ".format(i, carta))
-        i += 1
+ep2.printdobaralho(baralho)
 
 continuar = ep2.possui_movimentos_possiveis(baralho)
 
@@ -39,20 +26,7 @@ if continuar == True:
             jogardnv = input('\033[0;37;40mDeseja jogar de novo? (s/n) ')
             if jogardnv == 's':
                 baralho = ep2.cria_baralho()
-                i = 1
-                for carta in baralho:
-                    if '♦' in carta:
-                        print("\033[0;31;40m{}. {}  ".format(i, carta))
-                        i += 1
-                    if '♥' in carta:
-                        print("\033[0;32;40m{}. {}  ".format(i, carta))
-                        i += 1
-                    if '♣' in carta:
-                        print("\033[0;33;40m{}. {}  ".format(i, carta))
-                        i += 1
-                    if '♠' in carta:
-                        print("\033[0;34;40m{}. {}  ".format(i, carta))
-                        i += 1
+                ep2.printdobaralho(baralho)
             else:
                 continuar = False
         elif len(baralho) != 1:
@@ -62,20 +36,7 @@ if continuar == True:
                 jogardnv = input('\033[0;37;40mDeseja jogar de novo? (s/n) ')
                 if jogardnv == 's':
                     baralho = ep2.cria_baralho()
-                    i = 1
-                    for carta in baralho:
-                        if '♦' in carta:
-                            print("\033[0;31;40m{}. {}  ".format(i, carta))
-                            i += 1
-                        if '♥' in carta:
-                            print("\033[0;32;40m{}. {}  ".format(i, carta))
-                            i += 1
-                        if '♣' in carta:
-                            print("\033[0;33;40m{}. {}  ".format(i, carta))
-                            i += 1
-                        if '♠' in carta:
-                            print("\033[0;34;40m{}. {}  ".format(i, carta))
-                            i += 1
+                    ep2.printdobaralho(baralho)
                     continuar = ep2.possui_movimentos_possiveis(baralho)
                 else:
                     continuar = False
@@ -89,53 +50,14 @@ if continuar == True:
                     if len(possivel) == 1:
                         primeiro = possivel[0]
                         ep2.empilha(baralho, input_, primeiro)
-                        i = 1
-                        for carta in baralho:
-                            if '♦' in carta:
-                                print("\033[0;31;40m{}. {}  ".format(i, carta))
-                                i += 1
-                            if '♥' in carta:
-                                print("\033[0;32;40m{}. {}  ".format(i, carta))
-                                i += 1
-                            if '♣' in carta:
-                                print("\033[0;33;40m{}. {}  ".format(i, carta))
-                                i += 1
-                            if '♠' in carta:
-                                print("\033[0;34;40m{}. {}  ".format(i, carta))
-                                i += 1
+                        ep2.printdobaralho(baralho)
                     if len(possivel) == 2:
                         qual = int(input('\033[0;37;40mSobre qual carta você quer empilhar o {}: 1. {} ou 2. {}? '.format(baralho[input_], baralho[input_ - 1], baralho[input_ - 3])))
                         if qual == 1:
                             ep2.empilha(baralho, input_, possivel[0])
-                            i = 1
-                            for carta in baralho:
-                                if '♦' in carta:
-                                    print("\033[0;31;40m{}. {}  ".format(i, carta))
-                                    i += 1
-                                if '♥' in carta:
-                                    print("\033[0;32;40m{}. {}  ".format(i, carta))
-                                    i += 1
-                                if '♣' in carta:
-                                    print("\033[0;33;40m{}. {}  ".format(i, carta))
-                                    i += 1
-                                if '♠' in carta:
-                                    print("\033[0;34;40m{}. {}  ".format(i, carta))
-                                    i += 1
+                            ep2.printdobaralho(baralho)
                         else:
                             ep2.empilha(baralho, input_, possivel[1])
-                            i = 1
-                            for carta in baralho:
-                                if '♦' in carta:
-                                    print("\033[0;31;40m{}. {}  ".format(i, carta))
-                                    i += 1
-                                if '♥' in carta:
-                                    print("\033[0;32;40m{}. {}  ".format(i, carta))
-                                    i += 1
-                                if '♣' in carta:
-                                    print("\033[0;33;40m{}. {}  ".format(i, carta))
-                                    i += 1
-                                if '♠' in carta:
-                                    print("\033[0;34;40m{}. {}  ".format(i, carta))
-                                    i += 1
+                            ep2.printdobaralho(baralho)
                     if len(possivel) == 0:
                         print('\033[1;31;40mA carta {} não pode ser movida.'.format(baralho[input_]))

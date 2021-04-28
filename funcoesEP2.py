@@ -87,3 +87,19 @@ def possui_movimentos_possiveis(baralho):
                 i += 1
             if i == len(baralho):
                 return False
+
+def printdobaralho(baralho):
+    i = 1
+    for carta in baralho:
+        if '♦' in carta:
+            print("\033[0;31;40m{}. {}  ".format(i, carta))
+            i += 1
+        if '♥' in carta:
+            print("\033[0;32;40m{}. {}  ".format(i, carta))
+            i += 1
+        if '♣' in carta:
+            print("\033[0;33;40m{}. {}  ".format(i, carta))
+            i += 1
+        if '♠' in carta:
+            print("\033[0;34;40m{}. {}  ".format(i, carta))
+            i += 1
