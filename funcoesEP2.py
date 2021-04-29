@@ -103,3 +103,22 @@ def printdobaralho(baralho):
         if '♠' in carta:
             print("\033[0;34;40m{}. {}  ".format(i, carta))
             i += 1
+
+def sy_naipe(naipe, carta=''):
+    ret = ''
+    if '♦' in naipe:
+        ret = f'\033[0;31;40m{naipe}{carta}\033[0;37;40m'
+    if '♥' in naipe:
+        ret = f'\033[0;32;40m{naipe}{carta}\033[0;37;40m'
+    if '♣' in naipe:
+        ret = f'\033[0;33;40m{naipe}{carta}\033[0;37;40m'
+    if '♠' in naipe:
+        ret = f'\033[0;34;40m{naipe}{carta}\033[0;37;40m'
+
+    return ret
+
+def printdobaralho(baralho):
+    i = 1
+    for carta in baralho:
+        print(f'{i}. {carta}')
+        i += 1
