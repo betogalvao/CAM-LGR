@@ -9,7 +9,7 @@ def cria_baralho():
     for instante in contante:
         x = numeros[instante]
         y = naipes[instante]
-        baralho.append(x + y)
+        baralho.append(sy_naipe(x + y))
         numeros.remove(x)
         naipes.remove(y)
         random.shuffle(baralho)
